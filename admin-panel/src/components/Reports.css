@@ -1,0 +1,163 @@
+/*
+  * =================================================
+  * Professional & Responsive Reports Page CSS
+  * =================================================
+*/
+
+:root {
+  --primary-color: #4e54c8;
+  --text-color-strong: #1a202c;
+  --text-color-light: #5a6474;
+  --surface-color: #ffffff;
+  --background-color: #f7f8fc;
+  --border-color: #e2e8f0;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+/* ======= Main Container ======= */
+.reports-container {
+  padding: 24px;
+  background-color: var(--background-color);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ======= Upgrade Notice ======= */
+.upgrade-notice {
+  text-align: center;
+  padding: 32px 24px;
+  background-color: var(--surface-color);
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  margin: 0 0 32px 0; /* Changed to bottom margin */
+}
+
+.upgrade-notice h3 {
+  font-size: 1.5rem;
+  color: var(--text-color-strong);
+  margin-bottom: 8px;
+}
+
+.upgrade-notice p {
+  color: var(--text-color-light);
+  margin-bottom: 24px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.upgrade-notice .button { /* Assumes a global .button class */
+  background: var(--primary-color);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.upgrade-notice .button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(78, 84, 200, 0.3);
+}
+
+
+/* ======= KPI Grid & Cards ======= */
+.kpi-grid {
+  display: grid;
+  /* This is already a great responsive approach! */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.kpi-card {
+  background-color: var(--surface-color);
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  text-align: left; /* Left-align for a cleaner look */
+  border: 1px solid var(--border-color);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kpi-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.kpi-card h4 {
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-color-light);
+  text-transform: uppercase; /* Professional touch */
+  letter-spacing: 0.5px;
+}
+
+.kpi-card p {
+  margin: 0;
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--text-color-strong);
+  line-height: 1.2;
+}
+
+/* Special styling for the upgrade-prompt KPI card */
+.kpi-card.kpi-upgrade {
+  background: linear-gradient(45deg, #f0f4ff, #e6e9ff);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-style: solid;
+  border-color: var(--primary-color);
+}
+
+.kpi-card.kpi-upgrade h4 {
+  color: var(--primary-color);
+}
+
+.kpi-card.kpi-upgrade .upgrade-link {
+  margin-top: 12px;
+  font-weight: 600;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+
+/* ======= Table Container ======= */
+.report-table-container {
+  background-color: var(--surface-color);
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  overflow-x: auto; /* Keeps horizontal scroll for wide tables */
+
+  /* ✅ FIX: Add these two lines to make the table scrollable */
+  max-height: 60vh; /* Sets a maximum height (60% of the viewport height) */
+  overflow-y: auto; /* Adds a vertical scrollbar ONLY when needed */
+}
+/* ============================
+    Responsive Adjustments
+   ============================ */
+
+@media (max-width: 768px) {
+  .reports-container {
+    padding: 16px;
+  }
+
+  .kpi-grid {
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .kpi-card p {
+    font-size: 1.8rem;
+  }
+  
+  .upgrade-notice h3 {
+    font-size: 1.25rem;
+  }
+}

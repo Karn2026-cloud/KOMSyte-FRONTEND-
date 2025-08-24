@@ -1,0 +1,321 @@
+/*
+ * ==========================================================
+ * Professional & Responsive Billing Page CSS
+ * ==========================================================
+*/
+
+:root {
+  --primary-color: #4e54c8;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --text-color-strong: #1a202c;
+  --text-color-light: #5a6474;
+  --surface-color: #ffffff;
+  --background-color: #f7f8fc;
+  --border-color: #e2e8f0;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+/* ======= General Layout ======= */
+.billing-container {
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background-color);
+  height: calc(100vh - 48px);
+}
+
+.billing-main {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.billing-sidebar {
+  flex: 2;
+  background-color: var(--surface-color);
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid var(--border-color);
+}
+
+/* ======= Input, Manual & Tools Section ======= */
+.input-section,
+.manual-add-section {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping on small screens */
+  gap: 12px;
+  align-items: center;
+  background: var(--surface-color);
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+}
+
+.barcode-input {
+  flex: 1 1 200px; /* Allow growing and shrinking */
+}
+
+.quantity-input,
+.unit-selector {
+  flex: 0 1 80px; /* Don't grow, allow shrinking */
+}
+
+.input-section input,
+.input-section select,
+.manual-add-section input,
+.manual-add-section select {
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-section input:focus,
+.input-section select:focus,
+.manual-add-section input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(78, 84, 200, 0.2);
+}
+
+.add-item-btn,
+.manual-add-section button {
+  padding: 12px 20px;
+  border: none;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.add-item-btn:hover,
+.manual-add-section button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(78, 84, 200, 0.25);
+}
+
+.tools-section {
+  display: flex;
+  gap: 12px;
+}
+
+.tool-btn {
+  padding: 10px 16px;
+  border: 1px solid var(--border-color);
+  background-color: var(--surface-color);
+  color: var(--text-color-light);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+
+.tool-btn:hover {
+  background-color: #f5f7ff;
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.tool-btn.stop {
+  background-color: #fff0f0;
+  color: var(--danger-color);
+  border-color: var(--danger-color);
+}
+
+#reader {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+}
+
+/* ======= Sidebar & Bill List ======= */
+.billing-sidebar h3 {
+  margin-top: 0;
+  color: var(--text-color-strong);
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 1.25rem;
+}
+
+.bill-items-list {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.bill-items-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.bill-items-list th,
+.bill-items-list td {
+  padding: 12px 8px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.bill-items-list th {
+  font-size: 0.8rem;
+  color: var(--text-color-light);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+tbody tr:hover {
+  background-color: #f5f7ff;
+}
+
+.bill-items-list small {
+  color: var(--text-color-light);
+}
+.unit-text {
+  color: var(--text-color-light);
+  font-size: 0.85em;
+}
+
+.discount-input {
+  width: 70px;
+  padding: 6px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  text-align: right;
+}
+
+.discount-input:focus {
+  outline: 1px solid var(--primary-color);
+}
+
+.remove-item-btn {
+  background: #fee;
+  border: 1px solid #fcc;
+  color: #c00;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  font-weight: bold;
+  line-height: 22px;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.remove-item-btn:hover {
+  background: #fdd;
+  transform: scale(1.1);
+}
+
+.empty-bill-text {
+  color: var(--text-color-light);
+  text-align: center;
+  padding: 40px 0;
+}
+
+/* ======= Bill Summary ======= */
+.bill-summary {
+  padding-top: 16px;
+  border-top: 2px solid var(--border-color);
+}
+
+.customer-mobile-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+
+.total-amount {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  text-align: right;
+  color: var(--text-color-strong);
+}
+
+.total-amount span {
+  color: var(--primary-color);
+}
+
+.finalize-btn {
+  width: 100%;
+  padding: 16px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  background-color: var(--success-color);
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.finalize-btn:disabled {
+  background-color: #a0aec0;
+  cursor: not-allowed;
+}
+
+.finalize-btn:hover:not(:disabled) {
+  background-color: #218838;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+}
+
+/* ======= Message Area ======= */
+.message {
+  margin-top: 16px;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+  border-left: 5px solid;
+}
+
+.message.success {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border-color: #2e7d32;
+}
+.message.error {
+  background-color: #ffebee;
+  color: #c62828;
+  border-color: #c62828;
+}
+.message.info {
+  background-color: #e3f2fd;
+  color: #1565c0;
+  border-color: #1565c0;
+}
+
+/* ======= Responsive Design ======= */
+@media (max-width: 900px) {
+  .billing-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .billing-sidebar {
+    /* Allow sidebar to grow with content, but add a max-height */
+    /* to prevent it from taking over the whole screen on mobile */
+    max-height: 70vh; 
+  }
+}

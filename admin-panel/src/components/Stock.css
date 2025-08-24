@@ -1,0 +1,194 @@
+/*
+  * =================================================
+  * Professional & Responsive Stock List Page CSS
+  * =================================================
+*/
+
+:root {
+  --primary-color: #4e54c8;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --warning-bg-color: #fff3cd;
+  --warning-text-color: #856404;
+  --warning-border-color: #ffeeba;
+  --text-color-strong: #1a202c;
+  --text-color-light: #5a6474;
+  --surface-color: #ffffff;
+  --background-color: #f7f8fc;
+  --border-color: #e2e8f0;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+/* ======= Main Container ======= */
+.stock-list-container {
+  padding: 24px;
+  background-color: var(--background-color);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ======= Header Section ======= */
+.stock-list-header {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  align-items: center;
+  flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+}
+
+.search-bar {
+  flex: 1 1 300px; /* Allows shrinking and growing */
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-bar:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(78, 84, 200, 0.2);
+}
+
+.refresh-btn {
+  padding: 12px 24px;
+  border: none;
+  background-color: var(--primary-color);
+  color: var(--surface-color);
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.refresh-btn:hover {
+  background-color: #3e44a1;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(78, 84, 200, 0.2);
+}
+
+/* ======= Low Stock Alert ======= */
+.low-stock-alert {
+  background-color: var(--warning-bg-color);
+  color: var(--warning-text-color);
+  padding: 16px 20px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  border-left: 5px solid var(--warning-border-color); /* Modern emphasis */
+  box-shadow: var(--shadow-sm);
+}
+
+.low-stock-alert h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.1rem;
+}
+
+.low-stock-alert ul {
+  padding-left: 20px;
+  margin: 0;
+  list-style-type: circle;
+}
+
+/* ======= Table ======= */
+.table-wrapper {
+  overflow-x: auto; /* Critical for responsive tables */
+  background: var(--surface-color);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-md);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 16px 20px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+  white-space: nowrap; /* Prevents text wrapping in cells */
+}
+
+th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text-color-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+tbody tr:hover {
+  background-color: #f5f7ff;
+}
+
+/* Conditional Row Styling */
+tr.low-stock {
+  background-color: #fff9e6;
+}
+
+tr.out-of-stock {
+  background-color: #ffe6e6;
+  color: #c53030;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+/* Action Buttons within Table */
+.action-btn {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-right: 8px;
+  transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.restock-btn {
+  background-color: var(--success-color);
+  color: white;
+}
+.restock-btn:hover {
+  background-color: #218838;
+}
+
+.delete-btn {
+  background-color: var(--danger-color);
+  color: white;
+}
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+/* ============================
+    Responsive Adjustments
+   ============================ */
+
+@media (max-width: 768px) {
+  .stock-list-container {
+    padding: 16px;
+  }
+
+  .stock-list-header {
+    gap: 12px;
+  }
+  
+  .search-bar {
+    /* Take full width on small screens for better usability */
+    flex-basis: 100%; 
+  }
+
+  th, td {
+    padding: 12px 16px;
+  }
+}

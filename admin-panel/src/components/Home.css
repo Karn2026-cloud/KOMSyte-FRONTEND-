@@ -1,0 +1,239 @@
+/*
+  * =================================================
+  * Fully Updated Responsive CSS
+  * Key Improvements:
+  * 1. CSS Variables: For easy theme management (colors, fonts).
+  * 2. Simplified Breakpoints: One major breakpoint for mobile/tablet instead of many small ones.
+  * 3. Global Styles: Better reset and box-sizing for consistency.
+  * 4. Fluid Layout: Ensures content looks great on all screen sizes.
+  * =================================================
+*/
+
+:root {
+  --primary-color: #4e54c8;
+  --secondary-color: #4facfe;
+  --gradient-start: #4facfe;
+  --gradient-end: #00f2fe;
+  --logout-gradient-start: #ff758c;
+  --logout-gradient-end: #ff7eb3;
+  --background-color: #f4f6fc;
+  --surface-color: #ffffff;
+  --text-color: #333;
+  --border-color: #e0e0e0;
+  --font-family: 'Poppins', sans-serif;
+}
+
+/* ======= Global & Reset ======= */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* ======= Main Layout Container ======= */
+.home-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ======= Sidebar ======= */
+.sidebar {
+  width: 240px; /* Slightly wider for better spacing */
+  background: var(--surface-color);
+  padding: 25px;
+  border-right: 1px solid var(--border-color);
+  box-shadow: 2px 0 12px rgba(0,0,0,0.04);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  transition: all 0.3s ease;
+  flex-shrink: 0; /* Prevents sidebar from shrinking */
+}
+
+.sidebar-title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: var(--primary-color);
+  letter-spacing: 1px;
+}
+
+.menu-list {
+  list-style: none;
+}
+
+.menu-item {
+  margin-bottom: 10px;
+}
+
+.menu-button {
+  width: 100%;
+  padding: 12px 18px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: left;
+  border: none;
+  border-radius: 8px;
+  background-color: transparent;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.menu-button:hover {
+  background-color: #f0f2ff;
+  color: var(--primary-color);
+}
+
+.menu-button.active {
+  background-color: var(--primary-color);
+  color: var(--surface-color);
+  box-shadow: 0 4px 10px rgba(78, 84, 200, 0.3);
+}
+
+/* ======= Main Content ======= */
+.main-content {
+  flex-grow: 1;
+  padding: 40px;
+  overflow-y: auto;
+}
+
+.welcome-text {
+  font-size: 2.2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 100px;
+  color: var(--primary-color);
+}
+
+/* ======= Profile Card ======= */
+.profile-card {
+  max-width: 550px;
+  margin: 40px auto;
+  background: var(--surface-color);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+  text-align: center;
+}
+
+.profile-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+.profile-item {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+
+/* ======= Buttons ======= */
+.button {
+  padding: 12px 24px;
+  margin-top: 15px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  width: 100%;
+  max-width: 250px;
+  transition: all 0.3s ease;
+  display: inline-block; /* Fix for centering margin:auto */
+}
+
+.subscribe-button {
+  background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+  color: var(--surface-color);
+}
+
+.subscribe-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 20px rgba(79, 172, 254, 0.4);
+}
+
+.logout-button {
+  background: linear-gradient(90deg, var(--logout-gradient-start), var(--logout-gradient-end));
+  color: var(--surface-color);
+}
+
+.logout-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 20px rgba(255, 117, 140, 0.4);
+}
+
+
+/* ===========================================
+    Responsive Styles (Mobile & Tablet First)
+  ===========================================
+*/
+@media (max-width: 768px) {
+  .home-container {
+    flex-direction: column; /* Stack sidebar and main content vertically */
+  }
+
+  .sidebar {
+    width: 100%;       /* Sidebar takes full width */
+    height: auto;        /* Height adjusts to content */
+    position: relative;  /* Unstick the sidebar */
+    box-shadow: none;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .sidebar-title {
+    margin-bottom: 15px;
+  }
+
+  .main-content {
+    padding: 20px;
+  }
+
+  .welcome-text {
+    font-size: 1.8rem;
+    margin-top: 40px;
+  }
+
+  .profile-card {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 20px;
+  }
+
+  .profile-title {
+    font-size: 1.4rem;
+  }
+  
+  .profile-item {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 15px;
+  }
+  
+  .profile-card {
+    padding: 15px;
+  }
+  
+  .welcome-text {
+    font-size: 1.5rem;
+  }
+  
+  .button {
+    padding: 10px 18px;
+    font-size: 0.95rem;
+  }
+}
